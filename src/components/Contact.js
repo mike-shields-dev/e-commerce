@@ -2,11 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Contact = () => {
-
-  const onSubmit = () => {
-
-  };
-
   return (
     <Wrapper>
       <div className='section-center'>
@@ -15,8 +10,17 @@ const Contact = () => {
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lacinia congue turpis, quis mollis felis tristique quis. Sed ut efficitur sapien.
           </p>
-          <form className='contact-form' onSubmit={onSubmit}>
-            <input type="email" className='form-input' placeholder="your email" />
+          <form 
+            action="https://formspree.io/f/xnqyggwe"
+            method="POST"
+            className='contact-form' 
+          >
+            <input 
+              type="email" 
+              name="_replyto"
+              className='form-input' 
+              placeholder="your email"   
+            />
             <button className='submit-btn' type="submit">Subscribe</button>
           </form>
         </div>
