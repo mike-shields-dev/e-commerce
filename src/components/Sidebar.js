@@ -9,7 +9,37 @@ import CartButtons from './CartButtons'
 import { useUserContext } from '../context/user_context'
 
 const Sidebar = () => {
-  return <h4>sidebar</h4>
+  const show = false;
+
+  return (
+    <SidebarContainer>
+      <aside 
+        className={
+          show ? "sidebar show-sidebar" : "sidebar"
+        }
+      >
+        <div className="sidebar-header">
+          <img className="logo" src={logo} alt="comfy sloth logo" />
+          <button className="close-btn" type="button" >
+            <FaTimes />
+          </button>
+        </div>
+        <ul className="links">
+          {links.map(({id, url, text}) => 
+            <li key={id}>
+              <Link to={url}>{text}</Link>
+            </li>
+        )}
+          <li>
+            <Link to="/checkout">
+              Checkout
+            </Link>
+          </li>
+        </ul>
+        <CartButtons />
+      </aside>
+    </SidebarContainer>
+  );
 }
 
 const SidebarContainer = styled.div`
