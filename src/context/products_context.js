@@ -43,8 +43,6 @@ export const ProductsProvider = ({ children }) => {
     fetchProducts(url);
   }, [])
 
-
-  console.log(state.products)
   return (
     <ProductsContext.Provider value={{
       ...state, 
