@@ -13,8 +13,6 @@ const FeaturedProducts = () => {
     products_error: error,
   } = useProductsContext();
 
-  console.log(featured);
-
   if(loading) return <Loading />;
   if(error) return <Error />;
 
