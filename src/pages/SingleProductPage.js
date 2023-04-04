@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
 import { useProductsContext } from '../context/products_context'
 import { single_product_url as url } from '../utils/constants'
@@ -15,7 +15,84 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
 const SingleProductPage = () => {
-  return <h4>single product page</h4>
+  const timerRef = useRef();
+  const history = useHistory(); 
+  const { id: productId } = useParams();
+  const { 
+    fetchSingleProduct, 
+    single_product: product, 
+    single_product_loading: loading,
+    single_product_error: error, 
+  } = useProductsContext();
+
+  useEffect(() => {
+    fetchSingleProduct(url + productId);
+  }, [productId]);
+
+  useEffect(() => {
+    if(!error) return;
+
+    timerRef.current = setTimeout(() => 
+      history.push('/')
+    , 3000);
+
+    return () => {
+      clearTimeout(timerRef.current)
+    }
+  }, [error])
+
+  if(loading) return <Loading />;
+  
+  if(error) return <Error />;
+
+  const { 
+    id: sku, 
+    name, 
+    price, 
+    description, 
+    stock, 
+    stars, 
+    company, 
+    images
+  } = product;
+
+  return (
+    <Wrapper>
+      <PageHero title={name} product={product} />
+      <div className="section section-center page">
+        <Link to="/products" className="btn">
+          back to products
+        </Link>
+        <div className="products-center">
+          <ProductImages images={images} />
+          <section className="content">
+            <h2>{name}</h2>
+            <Stars />
+            <h5 className="price">
+              {formatPrice(price)}
+            </h5>
+            <p className="desc">
+              {description}
+            </p>
+            <p className="info">
+              <span>Available : </span>
+              {stock > 0 ? 'In stock' : 'Out of stock'}
+            </p>
+            <p className="info">
+              <span>SKU : </span>
+              {sku}
+            </p>
+            <p className="info">
+              <span>Brand : </span>
+              {company}
+            </p>
+            <hr />
+            {stock > 0 && <AddToCart />}
+          </section>
+        </div>
+      </div>
+    </Wrapper>
+  );
 }
 
 const Wrapper = styled.main`
