@@ -30,16 +30,19 @@ const filter_reducer = (state, action) => {
         ...state,
         grid_view: true,
       }
+
     case SET_LISTVIEW: 
       return {
         ...state, 
         grid_view: false,
       }
+
     case UPDATE_SORT: 
       return {
         ...state,
         sort: action.payload,
       }
+
     case SORT_PRODUCTS: 
       const { sort, filtered_products } = state;
       let sorted_products = filtered_products;
@@ -64,6 +67,19 @@ const filter_reducer = (state, action) => {
       return {
         ...state,
         filtered_products: sorted_products,
+      }
+
+    case UPDATE_FILTERS:      
+      const { name, value } = action.payload;
+      
+      if(!(name in state.filters)) return state;
+
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          [name]: value,
+        }
       }
     default: 
       return state;
