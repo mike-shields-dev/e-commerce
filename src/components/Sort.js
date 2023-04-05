@@ -9,6 +9,8 @@ const Sort = () => {
     grid_view,
     setGridView, 
     setListView,
+    sort,
+    updateSort,
   } = useFilterContext();
 
   return (
@@ -27,6 +29,17 @@ const Sort = () => {
           <BsList />
         </button>
       </div>
+      <p>{products.length} products found</p>
+      <hr />
+      <form>
+        <label htmlFor="sort">sort by </label>
+        <select name="sort" id="sort" className="sort-input" value={sort} onChange={updateSort}>
+          <option value="price-asc">price (ascending)</option>
+          <option value="price-desc">price (descending)</option>
+          <option value="name-asc">name (a-z)</option>
+          <option value="name-desc">name (z-a)</option>
+        </select>
+      </form>
     </Wrapper>
   );
 }
