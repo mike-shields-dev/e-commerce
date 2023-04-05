@@ -1,15 +1,23 @@
-import {
+import * as actions from '../actions'
+
+const {
   LOAD_PRODUCTS,
-  SET_LISTVIEW,
   SET_GRIDVIEW,
+  SET_LISTVIEW,
   UPDATE_SORT,
   SORT_PRODUCTS,
   UPDATE_FILTERS,
   FILTER_PRODUCTS,
   CLEAR_FILTERS,
-} from '../actions'
+} = actions; 
 
 const filter_reducer = (state, action) => {
+  if(!(action.type in actions)) {   
+    throw new Error(
+      `No Matching "${action.type}" - action type`
+    );
+  };
+
   switch(action.type) {
     case LOAD_PRODUCTS:
       return {
