@@ -1,4 +1,5 @@
-import {
+import * as actions from "../actions";
+const {
   SIDEBAR_OPEN,
   SIDEBAR_CLOSE,
   GET_PRODUCTS_BEGIN,
@@ -7,14 +8,15 @@ import {
   GET_SINGLE_PRODUCT_BEGIN,
   GET_SINGLE_PRODUCT_SUCCESS,
   GET_SINGLE_PRODUCT_ERROR,
-} from "../actions";
+} = actions;
 
 const products_reducer = (state, action) => {
-  if (!action.type)
+  if(!(action.type in actions)) {   
     throw new Error(
       `No Matching "${action.type}" - action type`
     );
-
+  };
+  
   switch (action.type) {
     case SIDEBAR_OPEN:
       return {
