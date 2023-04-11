@@ -20,10 +20,18 @@ const filter_reducer = (state, action) => {
 
   switch(action.type) {
     case LOAD_PRODUCTS:
+      const loadedProducts = action.payload;
+      const loadedPrices = loadedProducts.map(product => product.price);
+
       return {
         ...state, 
-        all_products: [...action.payload],
-        filtered_products: [...action.payload],
+        all_products: [...loadedProducts],
+        filtered_products: [...loadedProducts],
+        filters: {
+          ...state.filters,
+          max_price: Math.max(...loadedPrices),
+          min_price: Math.min(...loadedPrices),
+        }
       }
     case SET_GRIDVIEW: 
       return {
