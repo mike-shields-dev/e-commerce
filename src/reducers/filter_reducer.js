@@ -89,6 +89,16 @@ const filter_reducer = (state, action) => {
           [name]: value,
         }
       }
+
+    case FILTER_PRODUCTS: 
+      const filters = action.payload;
+
+      for(const key in filters) {
+        console.log(key, filters[key])
+      }
+      
+      return { ...state }
+
     default: 
       return state;
   }
