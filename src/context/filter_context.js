@@ -62,6 +62,11 @@ export const FilterProvider = ({ children }) => {
       }
     })
   };
+
+  const clearFilters = () => {
+
+  };
+
   useEffect(() => {
     dispatch({ type: LOAD_PRODUCTS, payload: products });
   }, [products]);
