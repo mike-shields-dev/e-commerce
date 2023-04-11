@@ -52,8 +52,16 @@ export const FilterProvider = ({ children }) => {
   }
 
   const updateFilters = event => {
-    const { name, value } = event.target;
-    
+    let { name, value } = event.target;
+
+    if(name === 'price') {
+      value = +value;
+    }
+
+    if(name === 'shipping') {
+      value = event.target.checked;
+    }
+
     dispatch({
       type: UPDATE_FILTERS, 
       payload: {
@@ -64,7 +72,9 @@ export const FilterProvider = ({ children }) => {
   };
 
   const clearFilters = () => {
-
+    dispatch({
+      type: CLEAR_FILTERS, 
+    });
   };
 
   useEffect(() => {
@@ -82,7 +92,7 @@ export const FilterProvider = ({ children }) => {
       ...state, 
       setGridView, 
       setListView, 
-      updateSort, 
+      updateSort,
       updateFilters, 
       clearFilters,
     }}>

@@ -22,6 +22,8 @@ const filter_reducer = (state, action) => {
     case LOAD_PRODUCTS:
       const loadedProducts = action.payload;
       const loadedPrices = loadedProducts.map(product => product.price);
+      const maxPrice = Math.max(...loadedPrices)
+      const minPrice = Math.min(...loadedPrices)
 
       return {
         ...state, 
@@ -29,8 +31,9 @@ const filter_reducer = (state, action) => {
         filtered_products: [...loadedProducts],
         filters: {
           ...state.filters,
-          max_price: Math.max(...loadedPrices),
-          min_price: Math.min(...loadedPrices),
+          price: maxPrice,
+          max_price: maxPrice,
+          min_price: minPrice,
         }
       }
     case SET_GRIDVIEW: 
@@ -79,8 +82,6 @@ const filter_reducer = (state, action) => {
 
     case UPDATE_FILTERS:      
       const { name, value } = action.payload;
-      
-      if(!(name in state.filters)) return state;
 
       return {
         ...state,
@@ -91,13 +92,21 @@ const filter_reducer = (state, action) => {
       }
 
     case FILTER_PRODUCTS: 
-      const filters = action.payload;
-
-      for(const key in filters) {
-        console.log(key, filters[key])
-      }
-      
       return { ...state }
+
+    case CLEAR_FILTERS: 
+      return {
+        ...state, 
+        filters: {
+          ...state.filters,
+          text: '',
+          company: 'all',
+          category: 'all',
+          colour: 'all',
+          price: state.filters.max_price,
+          shipping: false,
+        },
+      }
 
     default: 
       return state;
