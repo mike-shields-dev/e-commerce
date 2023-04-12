@@ -9,7 +9,7 @@ import {
 } from '../actions'
 
 const initialState = {
-  cart: [],
+  cart: JSON.parse(localStorage.getItem('cart')) || [],
   total_items: 0,
   total_amount: 0,
   shipping_fee: 534,
@@ -26,6 +26,10 @@ export const CartProvider = ({ children }) => {
       payload: {id, colour, amount, product},
     })
   }
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(state.cart))
+  }, [state.cart])
 
   return (
     <CartContext.Provider value={{
