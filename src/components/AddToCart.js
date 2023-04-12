@@ -22,7 +22,7 @@ const AddToCart = ({
       setAmount(amount - 1)
     } 
   };
-  
+
   return (
     <Wrapper>
       <div className="colors">
@@ -37,7 +37,7 @@ const AddToCart = ({
               style={{ background: `${color}`}}
               onClick={() => setMainColor(color)}
             >
-              
+              {mainColor === color ? <FaCheck /> : null}
             </button>
           )}
         </div>
