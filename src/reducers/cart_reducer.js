@@ -23,7 +23,17 @@ const cart_reducer = (state, action) => {
       if(existingItem) {
         return {
           ...state,
-          cart: [...state.cart],
+          cart: state.cart
+            .map(item => {
+              if(item.id === id + colour) {
+                return {
+                  ...item,
+                  amount: Math.min(item.max, item.amount + amount)
+                }
+              } else {
+                return item;
+              }
+           }),
         }
       } else {
         const newItem = {
