@@ -94,10 +94,13 @@ const filter_reducer = (state, action) => {
     }
 
     case FILTER_PRODUCTS: {
-      const { text, category, company, colour, price, shipping } =
-        state.filters;
+      const { 
+        text, category, company, colour, price, shipping 
+      } = state.filters;
+      
       const filteredProducts = state.all_products.reduce(
         (filteredProducts, product) => {
+          
           const textMatches = 
             product.name
               .toLowerCase()
