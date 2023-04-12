@@ -27,6 +27,12 @@ export const CartProvider = ({ children }) => {
     })
   }
 
+  const clearCart = () => {
+    dispatch({
+      type: CLEAR_CART,
+    })
+  }
+
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(state.cart))
   }, [state.cart])
@@ -35,6 +41,7 @@ export const CartProvider = ({ children }) => {
     <CartContext.Provider value={{
       ...state,
       addToCart,
+      clearCart,
     }}>{children}</CartContext.Provider>
   )
 }
