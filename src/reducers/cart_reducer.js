@@ -30,9 +30,9 @@ const cart_reducer = (state, action) => {
                   ...item,
                   amount: Math.min(item.max, item.amount + amount)
                 }
-              } else {
-                return item;
-              }
+              } 
+
+              return item;
             }),
         }
       } else {
@@ -107,4 +107,4 @@ const cart_reducer = (state, action) => {
   }
 }
 
-export default cart_reducer
+export default cart_reducer;

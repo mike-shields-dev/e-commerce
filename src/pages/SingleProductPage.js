@@ -27,6 +27,7 @@ const SingleProductPage = () => {
 
   useEffect(() => {
     fetchSingleProduct(url + productId);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productId]);
 
   useEffect(() => {
@@ -39,6 +40,7 @@ const SingleProductPage = () => {
     return () => {
       clearTimeout(timerRef.current)
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [error])
 
   if(loading) return <Loading />;
