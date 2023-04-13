@@ -6,6 +6,7 @@ import { FaCheck } from 'react-icons/fa'
 
 const Filters = () => {
   const {
+    all_products,
     updateFilters, 
     clearFilters,
     filters: {
