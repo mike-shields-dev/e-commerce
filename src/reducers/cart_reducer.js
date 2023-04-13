@@ -56,20 +56,21 @@ const cart_reducer = (state, action) => {
       return { ...state, cart: [] }
 
     case COUNT_CART_TOTALS: {
-      const { total_items, total_amount } = state.cart.reduce((totals, item) => {
-        totals.total_items += item.amount;
-        totals.total_amount += item.amount * item.price;
-        return totals;
-      }, {
-        total_items: 0,
-        total_amount: 0
-      });
+      const { total_items, total_amount } = 
+        state.cart.reduce((totals, item) => {
+          totals.total_items += item.amount;
+          totals.total_amount += item.amount * item.price;
+          return totals;
+        }, {
+          total_items: 0,
+          total_amount: 0
+        });
 
-      return {
-        ...state,
-        total_items,
-        total_amount,
-      }
+        return {
+          ...state,
+          total_items,
+          total_amount,
+        }
     }
 
     case REMOVE_CART_ITEM: {
