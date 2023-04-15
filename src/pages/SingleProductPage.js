@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import { useParams, useHistory } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { useProductsContext } from '../context/products_context'
 import { single_product_url as url } from '../utils/constants'
 import { formatPrice } from '../utils/helpers'
@@ -16,7 +16,7 @@ import { Link } from 'react-router-dom'
 
 const SingleProductPage = () => {
   const timerRef = useRef();
-  const history = useHistory(); 
+  const navigate = useNavigate(); 
   const { id: productId } = useParams();
   const { 
     fetchSingleProduct, 
@@ -34,7 +34,7 @@ const SingleProductPage = () => {
     if(!error) return;
 
     timerRef.current = setTimeout(() => 
-      history.push('/')
+      navigate('/')
     , 3000);
 
     return () => {
