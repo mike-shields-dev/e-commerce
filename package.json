@@ -1,5 +1,6 @@
 {
-  "name": "comfy",
+  "name": "e-commerce",
+  "author": "Michael Shields | mike-shields-dev",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

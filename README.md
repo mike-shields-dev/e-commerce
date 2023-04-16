@@ -26,9 +26,9 @@ The tutorial covered how to create an e-commerce application using the following
 
 ### State Management
 
-This project was my first practical introduction to using React's [useReducer](https://react.dev/reference/react/useReducer) and [context API](https://react.dev/learn/passing-data-deeply-with-context) together, to organise and group application state and business logic into related contexts and actions. 
+This project was my first practical introduction to using React's [useReducer](https://react.dev/reference/react/useReducer) and [context API](https://react.dev/learn/passing-data-deeply-with-context) together, to organise and group application state into objects and business logic into related contexts and actions. 
 
-This pattern abstracted related application state and business logic away from within UI components, making the application's development and file structure easier to navigate and reason about. 
+This pattern abstracts related application state and business logic away from within UI components, making the application's development and file structure easier to navigate and reason about. 
 
 It made the codebase more modular, enabling state and business logic reuse across all of the UI components no matter how nested these components were, reducing the need for prop-drilling.  
 
