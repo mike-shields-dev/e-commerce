@@ -9,7 +9,7 @@ This project is the result of completing a project tutorial from the Udemy cours
 The tutorial covered how to create an e-commerce application using the following technologies: 
 
 - [React](https://react.dev/) for the front-end user interface.
-- [styled-components] for local styling of UI components.
+- [styled-components](https://styled-components.com/) for local styling of UI components.
 - [react-icons](https://react-icons.github.io/react-icons/) for icons.
 - [Auth0](https://auth0.com/) for user authentication/authorization.
 - [Axios](https://axios-http.com/docs/intro) for API requests.
