@@ -14,6 +14,12 @@ The tutorial covered how to create an e-commerce application using the following
 - [Netlify](https://www.netlify.com/) for deployment and serverless functions.
 - [Stripe](https://stripe.com/en-gb) for payment support. 
 
+![image](./screenshots/homepage.png)
+![image](./screenshots/aboutpage.png)
+![image](./screenshots/products.png)
+![image](./screenshots/product.png)
+![image](./screenshots/cartpage.png)
+
 ## What I learned
 
 ### State Management
@@ -22,7 +28,7 @@ This project was my first practical introduction to using React's [useReducer](h
 
 This pattern abstracted application state and business logic away from the UI components, making the application's development easier to navigate and reason about, more modular enabling state, business logic and code in general reusable across all of the UI components where it was needed. 
 
-## Serverless Functions
+### Serverless Functions
 
 This project was also my first introduction to the concept of serverless functions and how they enable small pieces of business logic to be hosted by a service provider, taking away the need to setup your own server and deal with all the extra details that come with that.
 
