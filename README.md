@@ -9,7 +9,7 @@ This project is the result of completing a project tutorial from the Udemy cours
 The tutorial covered how to create an e-commerce application using the following technologies: 
 
 - [React](https://react.dev/) for the front-end user interface.
-- [styled-components](https://styled-components.com/) for local styling of UI components.
+- [styled-components] for local styling of UI components.
 - [react-icons](https://react-icons.github.io/react-icons/) for icons.
 - [Auth0](https://auth0.com/) for user authentication/authorization.
 - [Axios](https://axios-http.com/docs/intro) for API requests.
@@ -32,7 +32,7 @@ This pattern abstracts related application state and business logic away from wi
 
 It makes the codebase more modular, enabling state and business logic reuse across all of the UI components no matter how nested these components were, reducing the need for prop-drilling.
 
-The use of reducers also encourages immutable state updates by updating state object by copying. This helps to ensure that state remains consistent and a reliable single source of truth, reducing the likelihood of side effects and unintentional bugs that can happen as a result of direct state mutation.  
+The use of reducers also promotes immutable state updates by updating state objects through copying and replacing. This helps to ensure that state remains consistent between updates and a reliable single source of truth, reducing the likelihood of side effects and unintentional bugs that can happen as a result of direct state mutation.  
 
 ### Serverless Functions
 
