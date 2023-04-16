@@ -30,14 +30,15 @@ This project was my first practical introduction to using React's [useReducer](h
 
 This pattern abstracts related application state and business logic away from within UI components, making the application's development and file structure easier to navigate and reason about. 
 
-It made the codebase more modular, enabling state and business logic reuse across all of the UI components no matter how nested these components were, reducing the need for prop-drilling.  
+It makes the codebase more modular, enabling state and business logic reuse across all of the UI components no matter how nested these components were, reducing the need for prop-drilling.
+
+The use of reducers also encourages immutable state updates by updating state object by copying. This helps to ensure that state remains consistent and a reliable single source of truth, reducing the likelihood of side effects and unintentional bugs that can happen as a result of direct state mutation.  
 
 ### Serverless Functions
 
-This project was also my first introduction to the concept of serverless functions and I learned how they enable small pieces of business logic to be hosted by a service provider, taking away the need to set up a full server environment and handle all the extra concerns that come with along with that such as security and scaling.
+This project was also my first introduction to the concept of serverless functions and I learned how they enable small pieces of business logic to be hosted by a service provider or vendor, taking away the overhead of setting up a full server environment and having to deal with all the extra concerns that come with along with that such as managing infrastructure, security, bandwidth, scaling and maintenance.
 
 ### Styled Components
 
-I learned how styled-components along with global CSS, can be used as an alternative way to style UI components. They provide a way to scope CSS styles to specific components and support nested styles similar to SASS, which can eliminate the need to apply class names to every element within a component and eliminate the need for the BEM naming convention.
+I learned how styled-components along with global CSS, can be used as an alternative way to style UI components. They provide a way to scope CSS styles to specific components and support nested styles similar to SASS, which can eliminate the need to apply class names to every element within a component and the need for naming conventions such as BEM.
 
-### Further Development
