@@ -16,11 +16,11 @@ The tutorial covered how to create an e-commerce application using the following
 - [Netlify](https://www.netlify.com/) for deployment and serverless functions.
 - [Stripe](https://stripe.com/en-gb) for payment support. 
 
-![image](./screenshots/homepage.png)
-![image](./screenshots/aboutpage.png)
-![image](./screenshots/products.png)
-![image](./screenshots/product.png)
-![image](./screenshots/cartpage.png)
+<img src="./screenshots/homepage.png" alt="home page" width="50%" />
+<img src="./screenshots/aboutpage.png" alt="about page" width="50%" />
+<img src="./screenshots/products.png" alt="products page" width="50%" />
+<img src="./screenshots/product.png" alt="product page" width="50%" />
+<img src="./screenshots/cartpage.png" alt="cart page" width="50%" />
 
 ## What I learned
 
